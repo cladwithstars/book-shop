@@ -1,56 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+
+import { TopBar } from "./components/TopBar";
+import { Cart } from "./components/Cart";
+import { BookList } from "./components/BookList";
+import { NavbarComponent } from "./components/NavbarComponent";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "font-awesome/css/font-awesome.min.css";
+// import { Container, Row } from "react-bootstrap";
+import { db } from "./db.js";
+import { useAppSelector } from "./app/hooks";
+import { selectAppView } from "./redux/slices/localDBSlice";
+import "./App.css";
 
 function App() {
+  const appView = useAppSelector(selectAppView);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <NavbarComponent />
+      {appView === "home" && (
+        <>
+          <TopBar />
+          <BookList books={db} />
+        </>
+      )}
+      {appView === "cart" && <Cart />}
     </div>
   );
 }
