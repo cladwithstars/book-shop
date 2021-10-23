@@ -1,9 +1,10 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useAppSelector } from "../app/hooks";
-import { selectCartBooks } from "../redux/slices/cartSlice";
+import { selectCartBooks } from "../app/slices/cartSlice";
 // import { CartBook } from "./CartBook";
 import { CartTable } from "./CartTable";
+import { OrderSummary } from "./OrderSummary";
 
 export const Cart = () => {
   const cartBooks = useAppSelector(selectCartBooks);
@@ -13,18 +14,14 @@ export const Cart = () => {
   };
   return (
     <Container>
-      <CartTable />
-      {/* <ul>
-        {cartBooks.map((bk: any, idx: number) => (
-          <CartBook
-            title={bk.title}
-            author={bk.author}
-            description={bk.description}
-            id={bk.id}
-          />
-        ))}
-      </ul> */}
-      Total cost: ${getTotalPrice(cartBooks)}
+      {cartBooks.length > 0 ? (
+        <>
+          <CartTable items={cartBooks} totalPrice={getTotalPrice(cartBooks)} />
+          <OrderSummary totalPrice={getTotalPrice(cartBooks)} />
+        </>
+      ) : (
+        <div className="text-danger">Your cart is empty!</div>
+      )}
     </Container>
   );
 };

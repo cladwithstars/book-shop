@@ -3,29 +3,33 @@ import { Modal, Button } from "react-bootstrap";
 import { useAppDispatch } from "../app/hooks";
 import { setAppView } from "../app/slices/localDBSlice";
 import styled from "styled-components";
+import { emptyCart } from "../app/slices/cartSlice";
 
-export const BookAddedModal = (props: any) => {
-  const { title, author, setShowModal } = props;
+export const PaymentModal = (props: any) => {
+  const { setShowModal } = props;
   const dispatch = useAppDispatch();
-  const handleClose = () => setShowModal(false);
-  const goToCart = () => {
-    dispatch(setAppView("cart"));
+  const handleClose = () => {
+    dispatch(emptyCart());
     setShowModal(false);
+  };
+  const returnHome = () => {
+    setShowModal(false);
+
+    dispatch(setAppView("home"));
+    dispatch(emptyCart());
   };
   return (
     <Modal show onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Added to cart!</Modal.Title>
+        <Modal.Title>Payment successful!</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        {title} by {author} has been added to your cart.
-      </Modal.Body>
+      <Modal.Body>Thanks for shopping with us.</Modal.Body>
       <Modal.Footer>
         <CloseButton variant="secondary" onClick={handleClose}>
           Close
         </CloseButton>
-        <StyledButton variant="primary" onClick={goToCart}>
-          View Cart
+        <StyledButton variant="success" onClick={returnHome}>
+          Return Home
         </StyledButton>
       </Modal.Footer>
     </Modal>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { useAppDispatch } from "../app/hooks";
-import { setAppView } from "../redux/slices/localDBSlice";
+import { setAppView } from "../app/slices/localDBSlice";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 

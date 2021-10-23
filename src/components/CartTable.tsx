@@ -1,35 +1,25 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 
-export const CartTable = () => {
+export const CartTable = (props: any) => {
+  const { items, totalPrice } = props;
   return (
-    <Table striped bordered hover>
+    <Table>
       <thead>
         <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        {items.map((item: any, idx: number) => (
+          <tr>
+            <td>{item.title} </td>
+            <td>{item.author} </td>
+            <td>${item.price} </td>
+          </tr>
+        ))}
       </tbody>
     </Table>
   );

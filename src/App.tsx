@@ -9,7 +9,7 @@ import "font-awesome/css/font-awesome.min.css";
 // import { Container, Row } from "react-bootstrap";
 import { db } from "./db.js";
 import { useAppSelector } from "./app/hooks";
-import { selectAppView } from "./redux/slices/localDBSlice";
+import { selectAppView } from "./app/slices/localDBSlice";
 import "./App.css";
 
 function App() {

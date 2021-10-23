@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../../app/store";
+import { RootState } from "../store";
 
 const initialState: any = {
   books: [],
@@ -12,10 +12,13 @@ export const cartSlice = createSlice({
     addBookToCart: (state, action) => {
       state.books.push(action.payload);
     },
+    emptyCart: (state) => {
+      state.books = [];
+    },
   },
 });
 
-export const { addBookToCart } = cartSlice.actions;
+export const { addBookToCart, emptyCart } = cartSlice.actions;
 
 export const selectCartBooks = (state: RootState) => state.cart.books;
 

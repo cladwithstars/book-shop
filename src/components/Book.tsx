@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { useAppDispatch } from "../app/hooks";
-import { addBookToCart } from "../redux/slices/cartSlice";
+import { addBookToCart } from "../app/slices/cartSlice";
 import styled from "styled-components";
 import { BookAddedModal } from "./BookAddedModal";
 
@@ -44,6 +44,6 @@ export const Book = (props: any) => {
 };
 
 const StyledButton = styled(Button)`
-  background-color: #70528e !important;
+  background-color: #318c8e !important;
   border: 0px !important;
 `;
