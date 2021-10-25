@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Button } from "react-bootstrap";
 import { PriceFilter } from "./PriceFilter";
 // @ts-ignore
-import styled from "styled-components";
+import styled from "styled-components"; //
 import { useAppDispatch } from "../app/hooks";
 
 import { resetBooks } from "../app/slices/bookSlice";
