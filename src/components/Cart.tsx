@@ -5,7 +5,7 @@ import { selectCartBooks } from "../app/slices/cartSlice";
 import { CartTable } from "./CartTable";
 import { OrderSummary } from "./OrderSummary";
 import styled from "styled-components";
-import { setAppView } from "../app/slices/localDBSlice";
+import { setAppView } from "../app/slices/localDBSlice"; //
 
 export const Cart = () => {
   const cartBooks = useAppSelector(selectCartBooks);
