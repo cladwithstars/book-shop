@@ -35,6 +35,7 @@ export const Book = (props: any) => {
             <i>{title}</i>
           </Card.Title>
           <Card.Subtitle className="mb-2 text-muted">{author}</Card.Subtitle>
+          <Card.Subtitle className="mb-2 text-muted">${price}</Card.Subtitle>
           <Card.Text>{description}</Card.Text>
           <StyledButton onClick={handleClick}>Add to Cart</StyledButton>
         </Card.Body>

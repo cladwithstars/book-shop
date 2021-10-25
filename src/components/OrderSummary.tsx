@@ -4,6 +4,7 @@ import { setAppView } from "../app/slices/localDBSlice";
 import { useAppDispatch } from "../app/hooks";
 // import { emptyCart } from "../app/slices/cartSlice";
 import { PaymentModal } from "./PaymentModal";
+import styled from "styled-components";
 
 export const OrderSummary = ({ totalPrice }: { totalPrice: number }) => {
   const dispatch = useAppDispatch();
@@ -15,7 +16,7 @@ export const OrderSummary = ({ totalPrice }: { totalPrice: number }) => {
   return (
     <Container>
       {showModal && <PaymentModal setShowModal={setShowModal} />}
-      <h1>Order Summary</h1>
+      <Header>Order Summary</Header>
       <div>Total Price: ${totalPrice} CAD</div>
       <Button
         style={{ marginTop: "10px" }}
@@ -34,3 +35,7 @@ export const OrderSummary = ({ totalPrice }: { totalPrice: number }) => {
     </Container>
   );
 };
+
+const Header = styled.div`
+  font-weight: bold;
+`;

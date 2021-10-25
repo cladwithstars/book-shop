@@ -10,6 +10,7 @@ import "font-awesome/css/font-awesome.min.css";
 import { db } from "./db.js";
 import { useAppSelector } from "./app/hooks";
 import { selectAppView } from "./app/slices/localDBSlice";
+import { Filters } from "./components/Filters";
 import "./App.css";
 
 function App() {
@@ -20,8 +21,9 @@ function App() {
       <NavbarComponent />
       {appView === "home" && (
         <>
-          <TopBar />
-          <BookList books={db} />
+          {/* <TopBar /> */}
+          <Filters />
+          <BookList />
         </>
       )}
       {appView === "cart" && <Cart />}
