@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "../app/hooks";
-import { selectBooks, updateBooks } from "../app/slices/bookSlice";
+import { useAppDispatch } from "../app/hooks";
+import { updateBooks } from "../app/slices/bookSlice";
 import { db } from "../db";
 import styled from "styled-components";
 
@@ -25,6 +25,7 @@ export const TextFilter = ({ resetState }: { resetState: boolean }) => {
 
   useEffect(() => {
     filterBooks(inputVal);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputVal]);
 
   useEffect(() => {

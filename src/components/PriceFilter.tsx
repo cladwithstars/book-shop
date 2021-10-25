@@ -13,7 +13,6 @@ export const PriceFilter = ({ resetState }: { resetState: boolean }) => {
   const dispatch = useAppDispatch();
   const [lowerRangeVal, setLowerRangeVal] = useState("");
   const [upperRangeVal, setUpperRangeVal] = useState("");
-  const [showDropdown, setShowDropdown] = useState(true);
 
   const handleLowerRangeValChange = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -57,7 +56,6 @@ export const PriceFilter = ({ resetState }: { resetState: boolean }) => {
   };
 
   const handleApply = () => {
-    setShowDropdown(false);
     if (priceFilter) {
       const filteredBooks = filterByPrice();
       dispatch(updateBooks(filteredBooks));
@@ -104,16 +102,6 @@ export const PriceFilter = ({ resetState }: { resetState: boolean }) => {
 const StyledInput = styled.input`
   margin-left: 10px;
   width: 100px;
-`;
-
-const StyledDropdownItem = styled(Dropdown.Item)`
-  background-color: transparent !important;
-  color: white !important;
-  :hover,
-  :active {
-    background-color: transparent !important;
-    color: white !important;
-  }
 `;
 
 const Toggle = styled(Dropdown.Toggle)`
