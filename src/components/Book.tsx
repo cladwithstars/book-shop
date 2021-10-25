@@ -1,16 +1,25 @@
 import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
-import { useAppDispatch } from "../app/hooks";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { addBookToCart } from "../app/slices/cartSlice";
 import styled from "styled-components";
 import { BookAddedModal } from "./BookAddedModal";
+import { selectCartBooks } from "../app/slices/cartSlice";
 
 export const Book = (props: any) => {
   const { id, title, author, description, imgUrl, price } = props;
+  const bks = useAppSelector(selectCartBooks);
   const dispatch = useAppDispatch();
   const [showModal, setShowModal] = useState(false);
   const handleClick = () => {
-    dispatch(addBookToCart({ id, title, author, description, imgUrl, price }));
+    // check if id is already in cart books.
+    // if it is, merely update the 'count' associated with that book in the cart
+    // else, add book to cart normally, with a count of 1
+
+    // const filtered = bks.find((bk) => bk.id === id);
+    dispatch(
+      addBookToCart({ id, title, author, description, imgUrl, price, count: 1 })
+    );
     setShowModal(true);
   };
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "react-bootstrap";
 
 export const CartTable = (props: any) => {
-  const { items, totalPrice } = props;
+  const { items } = props;
   return (
     <Table>
       <thead>

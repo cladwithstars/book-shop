@@ -9,7 +9,7 @@ export const BookList = () => {
   const books = useAppSelector(selectBooks);
 
   return (
-    <Container className="mt-4">
+    <Container className="mt-4 mb-4">
       <Row>
         {books.length > 0 ? (
           books.map((bk: any, idx: number) => (

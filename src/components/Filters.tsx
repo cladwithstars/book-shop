@@ -1,12 +1,13 @@
 import React from "react";
-import { Container, Button, Row } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import { PriceFilter } from "./PriceFilter";
 import styled from "styled-components";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { selectPriceFilter } from "../app/slices/localDBSlice";
-import { updateBooks, selectBooks, resetBooks } from "../app/slices/bookSlice";
+import { updateBooks, resetBooks } from "../app/slices/bookSlice";
 import { db } from "../db";
-import { setPriceFilter } from "../app/slices/localDBSlice";
+import { TextFilter } from "./TextFilter";
+// import { setPriceFilter } from "../app/slices/localDBSlice";
 
 export const Filters = () => {
   const priceFilter = useAppSelector(selectPriceFilter);
@@ -32,7 +33,6 @@ export const Filters = () => {
 
   const handleReset = () => {
     dispatch(resetBooks());
-    // dispatch(setPriceFilter(null));
   };
   return (
     <Container className="mt-3">
@@ -41,6 +41,7 @@ export const Filters = () => {
         <StyledButton onClick={handleSubmit}>Apply Filters</StyledButton>
         <ResetButton onClick={handleReset}>Reset Filters</ResetButton>
       </div>
+      <TextFilter />
     </Container>
   );
 };

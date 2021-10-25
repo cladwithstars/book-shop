@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Form, Dropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { setPriceFilter } from "../app/slices/localDBSlice";

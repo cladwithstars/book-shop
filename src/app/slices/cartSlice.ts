@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
+// type CartState = {
+
+// }
+
 const initialState: any = {
   books: [],
 };
