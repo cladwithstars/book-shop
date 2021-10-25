@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAppDispatch } from "../app/hooks";
 import { updateBooks } from "../app/slices/bookSlice";
 import { db } from "../db";
+// @ts-ignore
 import styled from "styled-components";
 
 export const TextFilter = ({ resetState }: { resetState: boolean }) => {

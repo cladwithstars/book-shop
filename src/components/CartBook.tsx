@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 // import { useAppDispatch } from "../app/hooks";
-
+// @ts-ignore
 import styled from "styled-components";
 import { BookAddedModal } from "./BookAddedModal";
 

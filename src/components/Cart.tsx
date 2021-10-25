@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { selectCartBooks } from "../app/slices/cartSlice";
 import { CartTable } from "./CartTable";
 import { OrderSummary } from "./OrderSummary";
+// @ts-ignore
 import styled from "styled-components";
 import { setAppView } from "../app/slices/localDBSlice"; //
 

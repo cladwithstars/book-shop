@@ -4,6 +4,7 @@ import { setAppView } from "../app/slices/localDBSlice";
 import { useAppDispatch } from "../app/hooks";
 // import { emptyCart } from "../app/slices/cartSlice";
 import { PaymentModal } from "./PaymentModal";
+// @ts-ignore
 import styled from "styled-components";
 
 export const OrderSummary = ({ totalPrice }: { totalPrice: number }) => {

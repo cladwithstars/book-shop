@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { addBookToCart } from "../app/slices/cartSlice";
+// @ts-ignore
 import styled from "styled-components";
 import { BookAddedModal } from "./BookAddedModal";
 import { selectCartBooks, updateQuantity } from "../app/slices/cartSlice";

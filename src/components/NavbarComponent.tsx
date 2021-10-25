@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { useAppDispatch } from "../app/hooks";
 import { setAppView } from "../app/slices/localDBSlice";
+// @ts-ignore
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Table } from "react-bootstrap";
+// @ts-ignore
 import styled from "styled-components";
 import { updateQuantity } from "../app/slices/cartSlice";
 import { useAppDispatch } from "../app/hooks";

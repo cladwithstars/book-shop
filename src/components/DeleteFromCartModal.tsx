@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useAppDispatch } from "../app/hooks";
+// @ts-ignore
 import styled from "styled-components";
 import { deleteFromCart } from "../app/slices/cartSlice";
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Dropdown, Button } from "react-bootstrap";
+// @ts-ignore
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { setPriceFilter } from "../app/slices/localDBSlice";
