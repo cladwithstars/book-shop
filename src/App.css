@@ -12,3 +12,38 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
+
+.btn:focus {
+  outline: none !important;
+}
+
+.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dropdown-item:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.dropdown-item {
+  background-color: transparent !important;
+  padding: 0;
+}
+
+.dropdown-toggle:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dropdown-toggle:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn-primary {
+  outline: none !important;
+  box-shadow: none !important;
+}

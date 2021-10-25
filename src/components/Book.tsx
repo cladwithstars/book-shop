@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { addBookToCart } from "../app/slices/cartSlice";
 import styled from "styled-components";
 import { BookAddedModal } from "./BookAddedModal";
-import { selectCartBooks } from "../app/slices/cartSlice";
+import { selectCartBooks, updateQuantity } from "../app/slices/cartSlice";
 
 export const Book = (props: any) => {
   const { id, title, author, description, imgUrl, price } = props;
@@ -16,10 +16,22 @@ export const Book = (props: any) => {
     // if it is, merely update the 'count' associated with that book in the cart
     // else, add book to cart normally, with a count of 1
 
-    // const filtered = bks.find((bk) => bk.id === id);
-    dispatch(
-      addBookToCart({ id, title, author, description, imgUrl, price, count: 1 })
-    );
+    const element = bks.find((bk: any) => bk.id === id);
+    if (element) {
+      dispatch(updateQuantity({ id, amount: 1 }));
+    } else {
+      dispatch(
+        addBookToCart({
+          id,
+          title,
+          author,
+          description,
+          imgUrl,
+          price,
+          quantity: 1,
+        })
+      );
+    }
     setShowModal(true);
   };
 

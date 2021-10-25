@@ -2,32 +2,34 @@ export const db = [
   {
     id: 1,
     title: "Beyond Good and Evil",
-    author: "Nietzsche",
+    author: "Friedrich Nietzsche",
     description: "Nietzsche's examiniation of morality",
     price: 10,
   },
   {
     id: 2,
     title: "Essays",
-    author: "Montaigne",
+    author: "Michel de Montaigne",
     description:
       "Montaignes's masterpiece of renaissance thought, a collection of highly entertaining and insightful essays",
     price: 12,
   },
   {
-    id: 3,
-    title: "Complete Works",
-    author: "Shakespeare",
-    description: "The complete works of the famous playwright",
-    price: 60,
+    id: 8,
+    title: "Fragments",
+    author: "Heraclitus",
+    description:
+      "The enigmatic and delightful sayings of the profound pre-Socractic thinker",
+    price: 15,
   },
   {
     id: 4,
     title: "The Count of Monte Cristo",
-    author: "Dumas",
+    author: "Alexandre Dumas",
     description: "The paragon of adventure novels",
     price: 17,
   },
+
   {
     id: 5,
     title: "Complete Works of H.P Lovecraft",
@@ -52,11 +54,10 @@ export const db = [
     price: 50,
   },
   {
-    id: 8,
-    title: "Fragments",
-    author: "Heraclitus",
-    description:
-      "The enigmatic and delightful sayings of the profound pre-Socractic thinker",
-    price: 15,
+    id: 3,
+    title: "Complete Works of Shakespeare",
+    author: "William Shakespeare",
+    description: "The complete works of the famous playwright",
+    price: 60,
   },
 ];

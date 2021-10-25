@@ -19,10 +19,22 @@ export const cartSlice = createSlice({
     emptyCart: (state) => {
       state.books = [];
     },
+    deleteFromCart: (state, action) => {
+      state.books = state.books.filter((bk: any) => bk.id !== action.payload);
+    },
+    updateQuantity: (state, action) => {
+      for (let i = 0; i < state.books.length; i++) {
+        if (state.books[i].id === action.payload.id) {
+          state.books[i].quantity += action.payload.amount;
+          return;
+        }
+      }
+    },
   },
 });
 
-export const { addBookToCart, emptyCart } = cartSlice.actions;
+export const { addBookToCart, emptyCart, updateQuantity, deleteFromCart } =
+  cartSlice.actions;
 
 export const selectCartBooks = (state: RootState) => state.cart.books;
 

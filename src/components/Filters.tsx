@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Button } from "react-bootstrap";
 import { PriceFilter } from "./PriceFilter";
 import styled from "styled-components";
@@ -7,41 +7,29 @@ import { selectPriceFilter } from "../app/slices/localDBSlice";
 import { updateBooks, resetBooks } from "../app/slices/bookSlice";
 import { db } from "../db";
 import { TextFilter } from "./TextFilter";
-// import { setPriceFilter } from "../app/slices/localDBSlice";
+import { setPriceFilter } from "../app/slices/localDBSlice";
 
 export const Filters = () => {
   const priceFilter = useAppSelector(selectPriceFilter);
+  const [resetState, setResetState] = useState(false);
   const books = db;
   const dispatch = useAppDispatch();
 
-  const filterByPrice = () => {
-    if (priceFilter && (priceFilter[0] || priceFilter[1])) {
-      const min = priceFilter[0] ? parseInt(priceFilter[0], 10) : 0;
-      const max = priceFilter[1] ? parseInt(priceFilter[1], 10) : 99999999999;
-      const res = books.filter((bk: any) => bk.price <= max && bk.price >= min);
-
-      return res;
-    } else return books;
-  };
-
-  const handleSubmit = () => {
-    if (priceFilter) {
-      const filteredBooks = filterByPrice();
-      dispatch(updateBooks(filteredBooks));
-    }
-  };
-
   const handleReset = () => {
+    setResetState(true);
     dispatch(resetBooks());
+    dispatch(setPriceFilter(null));
+    setTimeout(() => {
+      setResetState(false);
+    }, 500);
   };
   return (
     <Container className="mt-3">
       <div style={{ display: "flex" }}>
-        <PriceFilter />
-        <StyledButton onClick={handleSubmit}>Apply Filters</StyledButton>
+        <TextFilter resetState={resetState} />
+        <PriceFilter resetState={resetState} />
         <ResetButton onClick={handleReset}>Reset Filters</ResetButton>
       </div>
-      <TextFilter />
     </Container>
   );
 };

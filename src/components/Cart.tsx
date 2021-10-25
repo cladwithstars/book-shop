@@ -9,7 +9,7 @@ import { OrderSummary } from "./OrderSummary";
 export const Cart = () => {
   const cartBooks = useAppSelector(selectCartBooks);
   const getTotalPrice = (bks: any) => {
-    const prices = cartBooks.map((bk: any) => bk.price);
+    const prices = cartBooks.map((bk: any) => bk.price * bk.quantity);
     return prices.reduce((a: any, b: any) => a + b, 0);
   };
   return (
