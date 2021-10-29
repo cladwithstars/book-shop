@@ -58,6 +58,8 @@ export const PriceFilter = ({ resetState }: { resetState: boolean }) => {
 
   const handleApply = () => {
     if (priceFilter) {
+      console.log("in handle apply");
+
       const filteredBooks = filterByPrice();
       dispatch(updateBooks(filteredBooks));
     }

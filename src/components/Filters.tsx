@@ -24,7 +24,7 @@ export const Filters = () => {
   };
   return (
     <Container className="mt-3">
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", marginLeft: "20px", flexWrap: "wrap" }}>
         <TextFilter resetState={resetState} />
         <PriceFilter resetState={resetState} />
         <ResetButton onClick={handleReset}>Reset</ResetButton>

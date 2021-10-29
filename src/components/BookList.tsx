@@ -10,7 +10,7 @@ export const BookList = () => {
 
   return (
     <Container className="mt-4 mb-4">
-      <Row>
+      <Row style={{ marginLeft: "20px" }}>
         {books.length > 0 ? (
           books.map((bk: any, idx: number) => (
             <Book

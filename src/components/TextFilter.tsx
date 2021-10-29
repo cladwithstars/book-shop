@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useAppDispatch } from "../app/hooks";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { updateBooks } from "../app/slices/bookSlice";
+import { selectPriceFilter } from "../app/slices/localDBSlice";
 import { db } from "../db";
+
 // @ts-ignore
 import styled from "styled-components";
 
 export const TextFilter = ({ resetState }: { resetState: boolean }) => {
+  const priceFilter = useAppSelector(selectPriceFilter);
+  const lowerVal =
+    priceFilter && priceFilter[0] ? parseInt(priceFilter[0], 10) : "0";
+  const upperVal =
+    priceFilter && priceFilter[1] ? parseInt(priceFilter[1], 10) : 1000000;
   const books = db;
+  // const books = useAppSelector(selectBooks);
   const dispatch = useAppDispatch();
   const [inputVal, setInputVal] = useState("");
   const handleChange = (e: any) => {
@@ -15,10 +23,15 @@ export const TextFilter = ({ resetState }: { resetState: boolean }) => {
 
   const filterBooks = (val: string) => {
     const formattedVal = val.toLowerCase();
+    console.log("lower val: ", lowerVal);
+    console.log("upperVal: ", upperVal);
+
     const filteredBooks = books.filter(
       (el) =>
-        el.title?.toLowerCase().includes(formattedVal) ||
-        el.author?.toLowerCase().includes(formattedVal)
+        el.price > lowerVal &&
+        el.price < upperVal &&
+        (el.title?.toLowerCase().includes(formattedVal) ||
+          el.author?.toLowerCase().includes(formattedVal))
     );
 
     dispatch(updateBooks(filteredBooks));
