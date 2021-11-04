@@ -8,7 +8,7 @@ import { useAppDispatch } from "../app/hooks";
 import { resetBooks } from "../app/slices/bookSlice";
 
 import { TextFilter } from "./TextFilter";
-import { setPriceFilter } from "../app/slices/localDBSlice";
+import { setPriceFilter } from "../app/slices/localDBSlice"; //
 
 export const Filters = () => {
   const [resetState, setResetState] = useState(false);
