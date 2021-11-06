@@ -49,7 +49,7 @@ export const TextFilter = ({ resetState }: { resetState: boolean }) => {
   }, [resetState]);
 
   return (
-    <InputContainer>
+    <InputContainer className="mr-2 mt-2">
       <StyledInput
         placeholder="Filter by title or author"
         value={inputVal}

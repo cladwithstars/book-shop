@@ -73,11 +73,11 @@ export const PriceFilter = ({ resetState }: { resetState: boolean }) => {
   }, [resetState]);
 
   return (
-    <Dropdown>
+    <Dropdown className="mt-2">
       <Toggle>{getPriceFilterHeader()}</Toggle>
 
       <Dropdown.Menu>
-        <div style={{ margin: "10px" }}>
+        <div className="m-2">
           <Header>Range ($) </Header>
           <div style={{ display: "flex" }}>
             <StyledInput
@@ -104,6 +104,7 @@ export const PriceFilter = ({ resetState }: { resetState: boolean }) => {
 
 const StyledInput = styled.input`
   margin-left: 10px;
+  margin-right: 10px;
   width: 100px;
 `;
 
