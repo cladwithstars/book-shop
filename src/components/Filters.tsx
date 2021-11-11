@@ -34,8 +34,8 @@ export const Filters = () => {
 };
 
 const ResetButton = styled(Button)`
-  margin-left: 10px;
   font-size: 14px;
+  min-width: 100px;
   background-color: #dc3545 !important;
   border: none !important;
 `;

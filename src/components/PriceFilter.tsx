@@ -112,6 +112,8 @@ const Toggle = styled(Dropdown.Toggle)`
   background-color: #4682c8 !important;
   border: none !important;
   font-size: 16px;
+  min-width: 258px;
+  margin-right: 10px;
 `;
 
 const Header = styled.div`
@@ -127,6 +129,6 @@ const StyledButton = styled(Button)`
   background-color: #318c8e !important;
   border: none !important;
   font-size: 14px;
-  width: 95%;
+  width: 222px;
   cursor: pointer;
 `;

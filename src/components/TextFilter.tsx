@@ -68,5 +68,6 @@ const StyledInput = styled.input`
   border: transparent;
   border-bottom: 1px solid black;
   font-size: 16px;
+  min-width: 300px;
   margin-top: 10px;
 `;
